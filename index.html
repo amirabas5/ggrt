@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Calculator</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+}
+
+.calculator{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(18px);
+padding:25px;
+border-radius:25px;
+box-shadow:0 0 40px #00f7ff55;
+width:340px;
+}
+
+.display{
+width:100%;
+height:75px;
+border:none;
+outline:none;
+border-radius:18px;
+margin-bottom:20px;
+padding:15px;
+font-size:32px;
+text-align:right;
+background:#09131d;
+color:#00ffe5;
+box-shadow:inset 0 0 20px #00ffe588;
+}
+
+.buttons{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+}
+
+button{
+height:65px;
+border:none;
+border-radius:18px;
+font-size:22px;
+cursor:pointer;
+background:#111827;
+color:white;
+transition:.25s;
+box-shadow:0 0 12px #00eaff55;
+}
+
+button:hover{
+transform:scale(1.08);
+box-shadow:0 0 25px #00ffe5;
+color:#00ffe5;
+}
+
+.operator{
+background:#00b7ff;
+}
+
+.equal{
+grid-column:span 2;
+background:#00ff88;
+color:black;
+font-weight:bold;
+}
+
+.clear{
+background:#ff3d68;
+}
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+
+<input class="display" id="display" readonly>
+
+<div class="buttons">
+
+<button class="clear" onclick="clr()">C</button>
+<button onclick="del()">⌫</button>
+<button class="operator" onclick="add('/')">÷</button>
+<button class="operator" onclick="add('*')">×</button>
+
+<button onclick="add('7')">7</button>
+<button onclick="add('8')">8</button>
+<button onclick="add('9')">9</button>
+<button class="operator" onclick="add('-')">−</button>
+
+<button onclick="add('4')">4</button>
+<button onclick="add('5')">5</button>
+<button onclick="add('6')">6</button>
+<button class="operator" onclick="add('+')">+</button>
+
+<button onclick="add('1')">1</button>
+<button onclick="add('2')">2</button>
+<button onclick="add('3')">3</button>
+<button onclick="add('.')">.</button>
+
+<button onclick="add('0')">0</button>
+<button class="equal" onclick="calc()">=</button>
+
+</div>
+
+</div>
+
+<script>
+const display=document.getElementById("display");
+
+function add(v){
+display.value+=v;
+}
+
+function clr(){
+display.value="";
+}
+
+function del(){
+display.value=display.value.slice(0,-1);
+}
+
+function calc(){
+try{
+display.value=eval(display.value);
+}catch{
+display.value="Error";
+}
+}
+</script>
+
+</body>
+</html>
