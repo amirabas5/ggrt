@@ -1,0 +1,14 @@
+{
+  "background_color": "#00e5ff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Neon Calculator",
+  "orientation": "portrait",
+  "scope": "/Portrait",
+  "short_name": "Calculator",
+  "start_url": "/ggrt/",
+  "theme_color": "#ffffff",
+  "id": "neon-calculator",
+  "description": "A beautiful neon calculator with a modern glowing design.",
+  "lang": "en"
+}
